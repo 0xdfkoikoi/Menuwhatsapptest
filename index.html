@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu - DeWisdom CAFE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for cart icon and trash icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* === GENERAL STYLES === */
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 100vh;
+            background-color: #333;
+            background-image: url('https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/BG1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            overflow-x: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .menu-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .glassmorphism-header-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            padding: 20px 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .menu-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-button {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .header-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* === FIRST CAROUSEL === */
+        .slider-container {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 500px;
+            justify-content: center;
+        }
+
+        .slides-wrapper {
+            display: flex;
+            width: 100%;
+            transition: transform 0.6s ease-in-out;
+            height: 100%;
+        }
+
+        .menu-slide {
+            flex: 0 0 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .slide-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 40%;
+        }
+
+        .menu-slide img {
+            max-width: 100%;
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.2s ease;
+        }
+
+        .menu-slide img:active {
+            transform: scale(0.98);
+        }
+
+        .slide-content {
+            flex: 1;
+            max-width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .menu-slide-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .menu-slide-description {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .menu-slide-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #a7f3d0;
+            margin-top: auto;
+        }
+
+        .slider-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            z-index: 2;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .slider-nav-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        #prevBtn {
+            left: 15px;
+        }
+
+        #nextBtn {
+            right: 15px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: white;
+        }
+
+        /* === IMAGE MODAL === */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .image-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            width: auto;
+            height: auto;
+            max-width: 90vw;
+            max-height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            display: block;
+            border-radius: 10px;
+            object-fit: contain;
+            width: auto;
+            height: auto;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.1s ease;
+            z-index: 101;
+        }
+        
+        .modal-close-button:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .modal-close-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* === UPDATED STYLES FOR DRINK CAROUSEL & NEW CART SECTION === */
+        .new-carousel-card, .cart-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 20px;
+            position: relative;
+        }
+
+        .carousel-title, .cart-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .carousel-wrapper {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            transition: transform 0.3s ease-in-out;
+            width: fit-content;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 500px;
+            overflow-x: hidden;
+            padding: 20px 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: grab;
+            position: relative;
+        }
+        
+        .carousel-item {
+            flex-shrink: 0;
+            width: 150px;
+            padding: 0 5px;
+            margin: 0 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+            filter: blur(2px);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .carousel-item.active {
+            opacity: 1;
+            filter: blur(0);
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            width: 85%;
+            max-width: 400px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .info h2 {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .info p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .info .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+            color: #a7f3d0;
+        }
+        
+        .add-to-cart-button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #6ee7b7; /* teal-300 */
+            color: #1f2937; /* gray-800 */
+            border: none;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .add-to-cart-button:hover {
+            background-color: #34d399; /* teal-400 */
+        }
+        
+        /* On-page Cart Section */
+        .cart-section {
+            padding: 30px;
+            gap: 20px;
+        }
+
+        .cart-items-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cart-item-info span {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .cart-item-info small {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-button, .remove-item-button {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: white;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+        
+        .quantity-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .remove-item-button {
+            background-color: #ef4444; /* red-500 */
+            border-color: #ef4444;
+        }
+        
+        .remove-item-button:hover {
+            background-color: #dc2626; /* red-600 */
+        }
+        
+        .cart-total {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 10px;
+            text-align: right;
+            width: 100%;
+        }
+
+        .checkout-button {
+            padding: 12px 24px;
+            background-color: #34d399; /* teal-400 */
+            color: #1f2937; /* gray-800 */
+            font-weight: 700;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .checkout-button:hover {
+            background-color: #10b981; /* emerald-500 */
+        }
+        
+        .empty-cart-message {
+            text-align: center;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* === RESPONSIVE ADJUSTMENTS === */
+        @media (max-width: 768px) {
+            .menu-title {
+                font-size: 2em;
+            }
+            .slider-container {
+                min-height: 400px;
+                padding: 15px;
+            }
+            .menu-slide {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .slide-image-wrapper {
+                max-width: 80%;
+            }
+            .menu-slide img {
+                max-height: 250px;
+            }
+            .slide-content {
+                max-width: 95%;
+                align-items: center;
+                text-align: center;
+            }
+            .menu-slide-title {
+                font-size: 1.8em;
+            }
+            .menu-slide-description {
+                font-size: 0.9em;
+            }
+            .menu-slide-price {
+                font-size: 1.5em;
+            }
+            .slider-nav-button {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2em;
+            }
+            #prevBtn {
+                left: 10px;
+            }
+            #nextBtn {
+                right: 10px;
+            }
+            .slider-dots {
+                bottom: 15px;
+            }
+            .modal-content {
+                padding: 15px;
+            }
+            .modal-close-button {
+                top: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+                font-size: 1.5em;
+            }
+            /* New carousel responsive adjustments */
+            .carousel-item {
+                width: 150px; /* Increased width for smaller tablets */
+                margin: 0 10px;
+            }
+            .info h2 {
+                font-size: 1.2rem;
+            }
+            .info p {
+                font-size: 0.9rem;
+            }
+            .header-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .menu-container {
+                padding: 10px;
+                gap: 20px;
+            }
+            .glassmorphism-header-card {
+                padding: 15px;
+            }
+            .menu-title {
+                font-size: 1.5em;
+            }
+            .header-button {
+                padding: 8px 18px;
+                font-size: 0.85em;
+            }
+            .slider-container {
+                min-height: 350px;
+                padding: 10px;
+            }
+            .menu-slide img {
+                max-height: 200px;
+            }
+            .menu-slide-title {
+                font-size: 1.5em;
+            }
+            .menu-slide-price {
+                font-size: 1.3em;
+            }
+            .carousel-item {
+                width: 140px; /* Increased width for mobile phones */
+                margin: 0 10px;
+            }
+            .info h2 {
+                font-size: 1.1rem;
+            }
+            .info p {
+                font-size: 0.85rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <header class="glassmorphism-header-card">
+            <h1 class="menu-title">Our Delicious Menu</h1>
+            <div class="header-buttons">
+                <a href="index.html" class="header-button">← Back to Home</a>
+            </div>
+        </header>
+
+        <main class="slider-container">
+            <div class="slides-wrapper" id="slidesWrapper">
+                <div class="menu-slide">
+                    <div class="slide-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/JADI1.jpg" alt="Specialty Coffee">
+                    </div>
+                    <div class="slide-content">
+                        <h3 class="menu-slide-title">Aneka kopi dan Milkbase</h3>
+                        <p class="menu-slide-description">Minuman yang kaya dan aromatik dibuat dari biji kopi premium dari espresso yang kuat hingga americano yang lembut, sempurna untuk pecinta kopi sejati.</p>
+                        <span class="menu-slide-price">click untuk zoom menu</span>
+                    </div>
+                </div>
+
+                <div class="menu-slide">
+                    <div class="slide-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/JADI2.jpg" alt="Fluffy Croissant">
+                    </div>
+                    <div class="slide-content">
+                        <h3 class="menu-slide-title">Mocktail dan Tea</h3>
+                        <p class="menu-slide-description">Campuran buah dan rempah yang segar dan semarak minuman bebas alkohol yang berkilau dan menyehatkan.</p>
+                        <span class="menu-slide-price">click untuk zoom menu</span>
+                    </div>
+                </div>
+
+                <div class="menu-slide">
+                    <div class="slide-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/JADI3.jpg" alt="Avocado Toast">
+                    </div>
+                    <div class="slide-content">
+                        <h3 class="menu-slide-title">Light meal & noodle</h3>
+                        <p class="menu-slide-description">Hidangan ringan yang menggugah selera — mulai dari camilan renyah hingga sajian hangat yang nyaman, pas untuk teman ngopi atau momen santai bersama.</p>
+                        <span class="menu-slide-price">click untuk zoom menu</span>
+                    </div>
+                </div>
+
+                <div class="menu-slide">
+                    <div class="slide-image-wrapper">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/JADI4.jpg" alt="Velvet Cheesecake">
+                    </div>
+                    <div class="slide-content">
+                        <h3 class="menu-slide-title">Heavy meal</h3>
+                        <p class="menu-slide-description">Hidangan utama yang lezat dan mengenyangkan — cocok untuk mengisi energi dan menemani waktu santai dengan cita rasa istimewa.</p>
+                        <span class="menu-slide-price">click untuk zoom menu</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-nav-button" id="prevBtn">❮</div>
+            <div class="slider-nav-button" id="nextBtn">❯</div>
+
+            <div class="slider-dots" id="sliderDots">
+            </div>
+        </main>
+        
+        <!-- === UPDATED SECTION: Drink Carousel === -->
+        <section class="new-carousel-card">
+            <h2 class="carousel-title">Our Signature Coffee</h2>
+            <div class="carousel-container" id="drinkCarouselContainer">
+                <div class="carousel-wrapper" id="drinkCarouselWrapper">
+                    <div class="carousel-item" data-price="22000" data-title="Afogato" data-desc="kopi kualitas tinggi dan ice cream gato.">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m1.png" alt="Afogato" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item active" data-price="22000" data-title="Americano Coffee" data-desc="Americano menghasilkan rasa kopi yang ringan namun tetap kuat.">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m2.png" alt="Americano Coffee" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="25000" data-title="Es Kopi Susu" data-desc="Campuran espresso, susu, dan es batu, dengan rasa manis dan creamy yang menyegarkan.">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m3.png" alt="Es Kopi Susu" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="25000" data-title="Es kopi susu gula aren" data-desc="Es kopi susu gula aren adalah perpaduan espresso, susu, dan gula aren, disajikan dengan es batu. Rasanya manis, creamy, dan khas dengan aroma gula aren.">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m4.png" alt="Es kopi susu gula aren" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="23000" data-title="Cappucino" data-desc="Cappuccino adalah minuman kopi berbasis espresso dengan susu steamed dan busa susu, menghasilkan rasa creamy dan seimbang antara kopi dan susu.">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m5.png" alt="Cappucino" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="18000" data-title="Kopi Tubruk" data-desc="Kopi khas Indonesia yang dibuat dengan menyeduh langsung bubuk kopi kasar dengan air panas, menghasilkan rasa kuat dan aroma khas">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m6.png" alt="Kopi Tubruk" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="22000" data-title="V60" data-desc="Kopi V60 adalah metode seduh manual dengan alat berbentuk kerucut, menghasilkan kopi yang jernih, ringan, dan kaya rasa.">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m7.png" alt="V60" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="23000" data-title="japanese" data-desc="Kopi Japanese adalah metode seduh pour over langsung di atas es batu, menghasilkan kopi dingin yang segar dengan rasa cerah dan aroma yang tetap terjaga">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m8.png" alt="japanese" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                    <div class="carousel-item" data-price="25000" data-title="Kopi Lemon" data-desc="Kopi Japanese adalah minuman segar yang menggabungkan espresso dan perasan lemon, menghasilkan rasa asam-manis yang unik dan menyegarkan">
+                        <img src="https://raw.githubusercontent.com/0xdfkoikoi/wisdomcafe/refs/heads/main/img/m9.png" alt="Kopi Lemon" />
+                        <button class="add-to-cart-button">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="info" id="drinkInfo">
+                <div class="price"></div>
+                <h2></h2>
+                <p></p>
+            </div>
+        </section>
+
+        <!-- === NEW SECTION: ON-PAGE CART === -->
+        <section class="cart-section" id="onPageCart">
+            <h2 class="cart-title">Your Order</h2>
+            <p id="empty-cart-message" class="empty-cart-message">Your cart is empty. Add some items to get started!</p>
+            <ul id="cart-items-list" class="cart-items-list">
+                <!-- Cart items will be dynamically added here by JavaScript -->
+            </ul>
+            <div id="cart-total" class="cart-total"></div>
+            <a href="#" id="checkoutButton" class="checkout-button" style="display:none;">Send Order via WhatsApp</a>
+        </section>
+
+        <footer style="text-align: center; margin-top: 40px; font-size: 0.8em; color: rgba(255, 255, 255, 0.6);">
+            <p>&copy; 2025 DeWisdom CAFE. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Image Modal (unchanged) -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <span class="modal-close-button">&times;</span>
+            <img id="modalImage" src="" alt="Enlarged Menu Item">
+        </div>
+    </div>
+
+    <script>
+        // === SCRIPT FOR FIRST CAROUSEL (UNCHANGED) ===
+        const slidesWrapper = document.getElementById('slidesWrapper');
+        const slides = document.querySelectorAll('.menu-slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const sliderDots = document.getElementById('sliderDots');
+
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalCloseButton = document.querySelector('.modal-close-button');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            slidesWrapper.style.transform = `translateX(${-currentIndex * 100}%)`;
+            updateDots();
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        function createDots() {
+            sliderDots.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => showSlide(i));
+                sliderDots.appendChild(dot);
+            }
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        createDots();
+        showSlide(currentIndex);
+
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            img.addEventListener('click', () => {
+                modalImage.src = img.src;
+                imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        modalCloseButton.addEventListener('click', () => {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        imageModal.addEventListener('click', (event) => {
+            if (event.target === imageModal) {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && imageModal.classList.contains('active')) {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // === UPDATED SCRIPT FOR THE SECOND DRINK CAROUSEL & ON-PAGE CART FUNCTIONALITY ===
+        const newCarouselContainer = document.getElementById('drinkCarouselContainer');
+        const newCarouselWrapper = document.getElementById('drinkCarouselWrapper');
+        const newItems = newCarouselContainer.querySelectorAll('.carousel-item');
+        const newInfoBox = document.getElementById('drinkInfo');
+        
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartTotalDisplay = document.getElementById('cart-total');
+        const checkoutButton = document.getElementById('checkoutButton');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let newCurrentIndex = 1; // Start with the second item highlighted
+
+        // --- Cart Logic ---
+        let cart = [];
+        const workerPhoneNumber = '6281234567890'; // Replace with your worker's WhatsApp number (country code + number)
+
+        // Load cart from local storage on page load
+        function loadCartFromStorage() {
+            const storedCart = localStorage.getItem('deWisdomCafeCart');
+            if (storedCart) {
+                cart = JSON.parse(storedCart);
+                renderCart();
+            }
+        }
+        
+        function saveCartToStorage() {
+            localStorage.setItem('deWisdomCafeCart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function addToCart(item) {
+            const existingItem = cart.find(cartItem => cartItem.title === item.title);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+            saveCartToStorage();
+        }
+        
+        function updateCartItemQuantity(title, delta) {
+            const item = cart.find(cartItem => cartItem.title === title);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(cartItem => cartItem.title !== title);
+                }
+                saveCartToStorage();
+            }
+        }
+        
+        function renderCart() {
+            cartItemsList.innerHTML = '';
+            let total = 0;
+            
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                checkoutButton.style.display = 'none';
+                cartTotalDisplay.style.display = 'none';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                checkoutButton.style.display = 'block';
+                cartTotalDisplay.style.display = 'block';
+
+                cart.forEach(item => {
+                    const priceInIDR = new Intl.NumberFormat('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        minimumFractionDigits: 0
+                    }).format(item.price);
+
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('cart-item');
+                    listItem.innerHTML = `
+                        <div class="cart-item-info">
+                            <span>${item.title}</span>
+                            <small>${priceInIDR}</small>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="quantity-button decrement" data-title="${item.title}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-button increment" data-title="${item.title}">+</button>
+                            <button class="remove-item-button" data-title="${item.title}"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                    cartItemsList.appendChild(listItem);
+                    total += item.price * item.quantity;
+                });
+                
+                const totalInIDR = new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0
+                }).format(total);
+                cartTotalDisplay.textContent = `Total: ${totalInIDR}`;
+            }
+
+            // Add event listeners for quantity and remove buttons
+            cartItemsList.querySelectorAll('.quantity-button.increment').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const title = e.currentTarget.dataset.title;
+                    updateCartItemQuantity(title, 1);
+                });
+            });
+            cartItemsList.querySelectorAll('.quantity-button.decrement').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const title = e.currentTarget.dataset.title;
+                    updateCartItemQuantity(title, -1);
+                });
+            });
+            cartItemsList.querySelectorAll('.remove-item-button').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const title = e.currentTarget.dataset.title;
+                    cart = cart.filter(item => item.title !== title);
+                    saveCartToStorage();
+                });
+            });
+            generateWhatsAppLink();
+        }
+
+        function generateWhatsAppLink() {
+            let message = "Halo, saya ingin memesan:\n\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `- ${item.quantity}x ${item.title} (Rp${item.price.toLocaleString('id-ID')})\n`;
+                total += item.price * item.quantity;
+            });
+            
+            const totalInIDR = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(total);
+            message += `\nTotal: ${totalInIDR}`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${workerPhoneNumber}?text=${encodedMessage}`;
+            checkoutButton.href = whatsappUrl;
+            checkoutButton.target = "_blank"; // Open in a new tab
+        }
+
+
+        // --- Event Listeners and Carousel Logic ---
+        
+        // Add to Cart button listeners
+        newCarouselWrapper.addEventListener('click', (event) => {
+            const button = event.target.closest('.add-to-cart-button');
+            if (button) {
+                const itemElement = button.closest('.carousel-item');
+                const item = {
+                    title: itemElement.dataset.title,
+                    price: parseInt(itemElement.dataset.price),
+                };
+                addToCart(item);
+            }
+        });
+        
+        // Function to update the info box based on the current active item
+        function updateNewCarouselInfo(index) {
+            newItems.forEach(i => {
+                i.classList.remove('active');
+            });
+            const item = newItems[index];
+            item.classList.add('active');
+
+            const price = item.dataset.price;
+            const title = item.dataset.title;
+            const description = item.dataset.desc;
+
+            const priceInIDR = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(price);
+
+            newInfoBox.querySelector('.price').textContent = priceInIDR;
+            newInfoBox.querySelector('h2').textContent = title;
+            newInfoBox.querySelector('p').textContent = description;
+        }
+
+        // Function to center the current item in the carousel
+        function centerNewCarousel() {
+            const item = newItems[newCurrentIndex];
+            const itemWidth = item.offsetWidth + parseFloat(window.getComputedStyle(item).marginRight) * 2;
+            const containerWidth = newCarouselContainer.offsetWidth;
+            const centerOffset = (containerWidth / 2) - (itemWidth / 2);
+            
+            currentTranslate = centerOffset - (newCurrentIndex * itemWidth);
+            
+            newCarouselWrapper.style.transform = `translateX(${currentTranslate}px)`;
+        }
+        
+        // Handle touch and mouse events for swiping
+        newCarouselContainer.addEventListener('mousedown', startDrag);
+        newCarouselContainer.addEventListener('mouseup', endDrag);
+        newCarouselContainer.addEventListener('mousemove', drag);
+        newCarouselContainer.addEventListener('mouseleave', endDrag);
+
+        newCarouselContainer.addEventListener('touchstart', startDrag);
+        newCarouselContainer.addEventListener('touchend', endDrag);
+        newCarouselContainer.addEventListener('touchmove', drag);
+
+        function startDrag(event) {
+            isDragging = true;
+            newCarouselWrapper.style.transition = 'none';
+
+            if (event.type.includes('mouse')) {
+                startPos = event.clientX;
+            } else if (event.type.includes('touch')) {
+                startPos = event.touches[0].clientX;
+            }
+            prevTranslate = currentTranslate;
+        }
+
+        function drag(event) {
+            if (!isDragging) return;
+
+            event.preventDefault(); 
+            
+            let currentPos;
+            if (event.type.includes('mouse')) {
+                currentPos = event.clientX;
+            } else if (event.type.includes('touch')) {
+                currentPos = event.touches[0].clientX;
+            }
+            
+            const dragDistance = currentPos - startPos;
+            currentTranslate = prevTranslate + dragDistance;
+            
+            newCarouselWrapper.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function endDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const movedBy = currentTranslate - prevTranslate;
+
+            if (movedBy < -50 && newCurrentIndex < newItems.length - 1) {
+                newCurrentIndex++;
+            } else if (movedBy > 50 && newCurrentIndex > 0) {
+                newCurrentIndex--;
+            }
+
+            newCarouselWrapper.style.transition = 'transform 0.3s ease-in-out';
+            centerNewCarousel();
+            updateNewCarouselInfo(newCurrentIndex);
+        }
+
+        // Update on window resize to keep the item centered
+        window.addEventListener('resize', centerNewCarousel);
+
+        // Initial update on page load
+        window.onload = function() {
+            updateNewCarouselInfo(newCurrentIndex);
+            centerNewCarousel();
+            loadCartFromStorage();
+        };
+    </script>
+</body>
+</html>
